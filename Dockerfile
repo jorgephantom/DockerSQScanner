@@ -42,9 +42,6 @@ RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/
   && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/bin/* \
   && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/lib/*.jar
   
-ADD assets/ /opt/resource/
-ADD itest/ /opt/itest/
-
 # Install Cloud Foundry cli
 ADD https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.32.0 /tmp/cf-cli.tgz
 RUN mkdir -p /usr/local/bin && \
