@@ -9,5 +9,4 @@ RUN \
   && apt-get install -y --no-install-recommends \
     mono-devel \
     nuget \
-    ca-certificates-mono \
-	default-jre
+    ca-certificates-mono
