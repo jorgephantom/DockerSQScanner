@@ -36,7 +36,7 @@ RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/
   && mkdir -p $DOTNET_PROJECT_DIR \
   && unzip /opt/sonar-scanner-msbuild.zip -d $SONAR_SCANNER_MSBUILD_HOME \
   && rm /opt/sonar-scanner-msbuild.zip \
-  && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/*.exe \
+  && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/*.dll \
   && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/bin/* \
   && chmod 775 $SONAR_SCANNER_MSBUILD_HOME/**/lib/*.jar
   
