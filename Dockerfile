@@ -19,10 +19,6 @@ RUN set -x \
     libunwind8 \
     gettext \
     apt-transport-https \
-    mono-runtime \
-    ca-certificates-mono \
-    referenceassemblies-pcl \
-    mono-xsp4 \
     wget \
     zip \
     unzip \
