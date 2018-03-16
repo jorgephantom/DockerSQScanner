@@ -5,7 +5,7 @@ MAINTAINER Jorge Niebla <jorgephantom@hotmail.com>
 ENV SONAR_SCANNER_MSBUILD_VERSION=4.0.2.892 \
     SONAR_SCANNER_VERSION=3.0.3.778 \
     SONAR_SCANNER_MSBUILD_HOME=/opt/sonar-scanner-msbuild \
-    WHITESOURCE_HOME=/opt/whitesource
+    WHITESOURCE_HOME=/opt/whitesource \
     DOTNET_PROJECT_DIR=/project \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true \
     DOTNET_CLI_TELEMETRY_OPTOUT=true
