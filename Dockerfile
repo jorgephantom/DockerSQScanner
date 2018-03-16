@@ -21,6 +21,7 @@ RUN set -x \
     mono-runtime \
     ca-certificates-mono \
     referenceassemblies-pcl \
+    mono-xsp4 \
     wget \
     zip \
     unzip \
