@@ -20,6 +20,7 @@ RUN set -x \
     apt-transport-https \
     mono-runtime \
     ca-certificates-mono \
+    referenceassemblies-pcl \
     wget \
     zip \
     unzip \
