@@ -46,6 +46,7 @@ RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/
   
 RUN mkdir -p $WHITESOURCE_HOME
 ADD https://s3.amazonaws.com/file-system-agent/whitesource-fs-agent-18.2.1.jar $WHITESOURCE_HOME
+RUN chmod +x $WHITESOURCE_HOME/whitesource-fs-agent-18.2.1.jar
   
 # Install Cloud Foundry cli
 ADD https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.32.0 /tmp/cf-cli.tgz
