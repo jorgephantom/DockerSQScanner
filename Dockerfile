@@ -2,8 +2,8 @@ FROM java:openjdk-8-jre
 
 MAINTAINER Jorge Niebla <jorgephantom@hotmail.com>
 
-ENV SONAR_SCANNER_MSBUILD_VERSION=4.0.2.892 \
-    SONAR_SCANNER_VERSION=3.0.3.778 \
+ENV SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
+    SONAR_SCANNER_VERSION=3.1.0.1141 \
     SONAR_SCANNER_MSBUILD_HOME=/opt/sonar-scanner-msbuild \
     WHITESOURCE_HOME=/opt/whitesource \
     DOTNET_PROJECT_DIR=/project \
@@ -35,7 +35,7 @@ RUN set -x \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION.zip -O /opt/sonar-scanner-msbuild.zip \
+RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-netcoreapp2.0.zip -O /opt/sonar-scanner-msbuild.zip \
   && mkdir -p $SONAR_SCANNER_MSBUILD_HOME \
   && mkdir -p $DOTNET_PROJECT_DIR \
   && unzip /opt/sonar-scanner-msbuild.zip -d $SONAR_SCANNER_MSBUILD_HOME \
