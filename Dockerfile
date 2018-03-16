@@ -20,9 +20,8 @@ RUN set -x \
     apt-transport-https \
     mono-runtime \
     ca-certificates-mono \
-    referenceassemblies-pcl \
-    mono-xsp4 \
     wget \
+    zip \
     unzip \
     -y \
   && curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg \
