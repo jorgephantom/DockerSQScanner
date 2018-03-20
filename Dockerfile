@@ -1,7 +1,5 @@
 FROM openjdk:jre-slim
 
-MAINTAINER Jorge Niebla <jorgephantom@hotmail.com>
-
 ENV SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
     SONAR_SCANNER_VERSION=3.1.0.1141 \
     SONAR_SCANNER_MSBUILD_HOME=/opt/sonar-scanner-msbuild \
