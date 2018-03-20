@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jre
+FROM openjdk:jre-slim
 
 MAINTAINER Jorge Niebla <jorgephantom@hotmail.com>
 
