@@ -1,8 +1,8 @@
 FROM openjdk:jre-slim
 
 ENV WHITESOURCE_HOME=/opt/whitesource \
-	NODE_VERSION 6.13.1 \
-	YARN_VERSION 1.5.1
+	NODE_VERSION=6.13.1 \
+	YARN_VERSION=1.5.1
 
 RUN set -ex \
   && apt-get update \
