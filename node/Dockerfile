@@ -76,8 +76,8 @@ RUN set -ex \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   
 RUN mkdir -p $WHITESOURCE_HOME
-ADD https://s3.amazonaws.com/file-system-agent/whitesource-fs-agent-18.2.1.jar $WHITESOURCE_HOME
-RUN chmod +x $WHITESOURCE_HOME/whitesource-fs-agent-18.2.1.jar
+ADD https://s3.amazonaws.com/file-system-agent/whitesource-fs-agent-17.12.4.jar $WHITESOURCE_HOME
+RUN chmod +x $WHITESOURCE_HOME/whitesource-fs-agent-17.12.4.jar
   
 # Install Cloud Foundry cli
 ADD https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.32.0 /tmp/cf-cli.tgz
