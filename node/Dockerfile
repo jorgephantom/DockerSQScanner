@@ -95,3 +95,11 @@ ADD https://github.com/mikefarah/yaml/releases/download/1.10/yaml_linux_amd64 /t
 RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
   yaml --help && \
   rm -f /tmp/yaml_linux_amd64
+  
+# Install Chromium & Xvfb
+RUN \
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
+  apt-get update && \
+  apt-get install -y google-chrome-stable xvfb && \
+  rm -rf /var/lib/apt/lists/*
