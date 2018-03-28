@@ -2,7 +2,8 @@ FROM openjdk:jre-slim
 
 ENV WHITESOURCE_HOME=/opt/whitesource \
 	NODE_VERSION=6.13.1 \
-	YARN_VERSION=1.5.1
+	YARN_VERSION=1.5.1 \
+	CHROME_BIN=chromium
 
 RUN set -ex \
   && apt-get update \
@@ -97,5 +98,3 @@ ADD https://github.com/mikefarah/yaml/releases/download/1.10/yaml_linux_amd64 /t
 RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
   yaml --help && \
   rm -f /tmp/yaml_linux_amd64
-  
-ENV CHROME_BIN=chromium
