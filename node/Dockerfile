@@ -98,4 +98,4 @@ RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
   yaml --help && \
   rm -f /tmp/yaml_linux_amd64
   
-ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_BIN=chromium
