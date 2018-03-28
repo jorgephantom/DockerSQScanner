@@ -13,7 +13,8 @@ RUN set -ex \
     curl \
     git-core \
     zip \
-    chromium
+    chromium \
+    chromium-l10n
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
