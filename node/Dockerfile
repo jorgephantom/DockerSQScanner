@@ -4,6 +4,7 @@ ENV WHITESOURCE_HOME=/opt/whitesource \
 	NODE_VERSION=6.13.1 \
 	YARN_VERSION=1.5.1 \
 	CHROME_BIN=chromium \
+	WHITESOURCE_VERSION=17.12.4 \
 	SONAR_SCANNER_VERSION=3.1.0.1141
 
 RUN set -ex \
@@ -78,8 +79,8 @@ RUN set -ex \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   
 RUN mkdir -p $WHITESOURCE_HOME
-ADD https://s3.amazonaws.com/file-system-agent/whitesource-fs-agent-17.12.4.jar $WHITESOURCE_HOME
-RUN chmod +x $WHITESOURCE_HOME/whitesource-fs-agent-17.12.4.jar
+ADD https://s3.amazonaws.com/file-system-agent/whitesource-fs-agent-$WHITESOURCE_VERSION.jar $WHITESOURCE_HOME
+RUN chmod +x $WHITESOURCE_HOME/whitesource-fs-agent-$WHITESOURCE_VERSION.jar
   
 # Install Cloud Foundry cli
 ADD https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.32.0 /tmp/cf-cli.tgz
