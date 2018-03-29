@@ -13,6 +13,7 @@ RUN set -ex \
     curl \
     git-core \
     zip \
+    unzip \
     chromium
 
 RUN groupadd --gid 1000 node \
@@ -97,3 +98,10 @@ ADD https://github.com/mikefarah/yaml/releases/download/1.10/yaml_linux_amd64 /t
 RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
   yaml --help && \
   rm -f /tmp/yaml_linux_amd64
+  
+ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.1.0.1141-linux.zip /tmp/sonarscanner.zip
+RUN unzip /tmp/sonarscanner.zip -d /opt/sonarscanner && \
+  rm /tmp/sonarscanner.zip
+
+ENV SONAR_RUNNER_HOME=/opt/sonarscanner/sonar-scanner-cli-3.1.0.1141-linux \
+  PATH=$PATH:/opt/sonarscanner/sonar-scanner-cli-3.1.0.1141-linux/bin
