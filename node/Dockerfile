@@ -3,7 +3,8 @@ FROM openjdk:jre-slim
 ENV WHITESOURCE_HOME=/opt/whitesource \
 	NODE_VERSION=6.13.1 \
 	YARN_VERSION=1.5.1 \
-	CHROME_BIN=chromium
+	CHROME_BIN=chromium \
+	SONAR_SCANNER_VERSION=3.1.0.1141
 
 RUN set -ex \
   && apt-get update \
@@ -99,9 +100,9 @@ RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
   yaml --help && \
   rm -f /tmp/yaml_linux_amd64
   
-ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.1.0.1141-linux.zip /tmp/sonarscanner.zip
+ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip /tmp/sonarscanner.zip
 RUN unzip /tmp/sonarscanner.zip -d /opt/sonarscanner && \
   rm /tmp/sonarscanner.zip
 
-ENV SONAR_RUNNER_HOME=/opt/sonarscanner/sonar-scanner-cli-3.1.0.1141-linux \
-  PATH=$PATH:/opt/sonarscanner/sonar-scanner-cli-3.1.0.1141-linux/bin
+ENV SONAR_RUNNER_HOME=/opt/sonarscanner/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux \
+  PATH=$PATH:/opt/sonarscanner/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux/bin
