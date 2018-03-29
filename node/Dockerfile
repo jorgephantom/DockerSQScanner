@@ -105,5 +105,5 @@ ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner
 RUN unzip /tmp/sonarscanner.zip -d /opt/sonarscanner && \
   rm /tmp/sonarscanner.zip
 
-ENV SONAR_RUNNER_HOME=/opt/sonarscanner/sonar-scanner-cli-$SONAR_SCANNER_VERSION \
-  PATH=$PATH:/opt/sonarscanner/sonar-scanner-cli-$SONAR_SCANNER_VERSION/bin
+ENV SONAR_RUNNER_HOME=/opt/sonarscanner/sonar-scanner-$SONAR_SCANNER_VERSION \
+  PATH=$PATH:/opt/sonarscanner/sonar-scanner-$SONAR_SCANNER_VERSION/bin
