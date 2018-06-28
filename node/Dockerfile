@@ -1,7 +1,7 @@
 FROM openjdk:jre-slim
 
 ENV WHITESOURCE_HOME=/opt/whitesource \
-	NODE_VERSION=8.11.3 \
+	NODE_VERSION=6.13.1 \
 	YARN_VERSION=1.5.1 \
 	CHROME_BIN=chromium \
 	WHITESOURCE_VERSION=17.12.4 \
@@ -95,12 +95,6 @@ RUN chmod +x /tmp/autopilot-linux && \
   cf install-plugin /tmp/autopilot-linux -f && \
   rm -f /tmp/autopilot-linux
 
-# Install yaml cli
-ADD https://github.com/mikefarah/yaml/releases/download/1.10/yaml_linux_amd64 /tmp/yaml_linux_amd64
-RUN install /tmp/yaml_linux_amd64 /usr/local/bin/yaml && \
-  yaml --help && \
-  rm -f /tmp/yaml_linux_amd64
-  
 ADD https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION.zip /tmp/sonarscanner.zip
 RUN unzip /tmp/sonarscanner.zip -d /opt/sonarscanner && \
   rm /tmp/sonarscanner.zip
