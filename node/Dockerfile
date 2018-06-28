@@ -1,7 +1,7 @@
 FROM openjdk:jre-slim
 
 ENV WHITESOURCE_HOME=/opt/whitesource \
-	NODE_VERSION=6.13.1 \
+	NODE_VERSION=8.11.3 \
 	YARN_VERSION=1.5.1 \
 	CHROME_BIN=chromium \
 	WHITESOURCE_VERSION=17.12.4 \
