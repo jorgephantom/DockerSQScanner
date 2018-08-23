@@ -6,7 +6,10 @@ ENV SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
     WHITESOURCE_HOME=/opt/whitesource \
     DOTNET_PROJECT_DIR=/project \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true \
-    DOTNET_CLI_TELEMETRY_OPTOUT=true
+    DOTNET_CLI_TELEMETRY_OPTOUT=true \
+    CF_BGD_VERSION "1.3.0" \
+    CF_BGD_CHECKSUM "c74995ae0ba3ec9eded9c2a555e5984ba536d314cf9dc30013c872eb6b9d76b6" \
+    CF_BGD_TEMPFILE "/tmp/blue-green-deploy.linux64"
 
 RUN set -x \
   && apt-get update \
@@ -45,9 +48,16 @@ RUN mkdir -p /usr/local/bin && \
   tar -xzf /tmp/cf-cli.tgz -C /usr/local/bin && \
   cf --version && \
   rm -f /tmp/cf-cli.tgz
+  
+RUN curl -L -o "${CF_BGD_TEMPFILE}" \
+  "https://github.com/bluemixgaragelondon/cf-blue-green-deploy/releases/download/v${CF_BGD_VERSION}/blue-green-deploy.linux64" \
+  && echo "${CF_BGD_CHECKSUM}  ${CF_BGD_TEMPFILE}" | sha256sum -c - \
+  && chmod +x "${CF_BGD_TEMPFILE}" \
+  && cf install-plugin -f "${CF_BGD_TEMPFILE}" \
+  && rm "${CF_BGD_TEMPFILE}"
 
 # Install cf cli Autopilot plugin
-ADD https://github.com/contraband/autopilot/releases/download/0.0.3/autopilot-linux /tmp/autopilot-linux
+ADD https://github.com/contraband/autopilot/releases/download/0.0.4/autopilot-linux /tmp/autopilot-linux
 RUN chmod +x /tmp/autopilot-linux && \
   cf install-plugin /tmp/autopilot-linux -f && \
   rm -f /tmp/autopilot-linux
