@@ -26,7 +26,7 @@ RUN set -x \
   && wget -q https://packages.microsoft.com/config/debian/8/prod.list \
   && mv prod.list /etc/apt/sources.list.d/microsoft-prod.list \
   && apt-get update \
-  && apt-get install dotnet-sdk-2.1.101 -y --no-install-recommends \
+  && apt-get install dotnet-sdk-2.1 -y --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
