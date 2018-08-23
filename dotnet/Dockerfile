@@ -7,9 +7,9 @@ ENV SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
     DOTNET_PROJECT_DIR=/project \
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true \
     DOTNET_CLI_TELEMETRY_OPTOUT=true \
-    CF_BGD_VERSION "1.3.0" \
-    CF_BGD_CHECKSUM "c74995ae0ba3ec9eded9c2a555e5984ba536d314cf9dc30013c872eb6b9d76b6" \
-    CF_BGD_TEMPFILE "/tmp/blue-green-deploy.linux64"
+    CF_BGD_VERSION="1.3.0" \
+    CF_BGD_CHECKSUM="c74995ae0ba3ec9eded9c2a555e5984ba536d314cf9dc30013c872eb6b9d76b6" \
+    CF_BGD_TEMPFILE="/tmp/blue-green-deploy.linux64"
 
 RUN set -x \
   && apt-get update \
